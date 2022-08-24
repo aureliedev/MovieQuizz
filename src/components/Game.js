@@ -1,7 +1,23 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
-const Game = () => {
-    
+/****** COMPONENT GAME ********/
+const Game = (props) => {
+
+  const [timer, setTimer] = useState(60);
+
+  useEffect(() => {
+    let interval = null;
+
+    interval = setInterval(() => {
+        if (timer > 0) {
+          setTimer(timer => timer - 1);
+        } 
+      }, 1000);
+      return 
+
+  }, [timer]);
+
+  /****** RENDU VISUEL ********/
   return (
     <>
       <div className="main-container">
@@ -10,7 +26,7 @@ const Game = () => {
         </div>
         <div className="main-card">
           <div className="timerscore">
-            <div className="timer">TIMER</div>
+            <div className="timer">Temps: {timer}</div>
             <div className="score">SCORE</div>
           </div>
           <h4>Cet acteur a t'il joué dans ce film ? 🍿</h4>
