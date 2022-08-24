@@ -19,6 +19,7 @@ const Proposal = (props) => {
 
   useEffect(() => {
     const proposal = [];
+    
    /* Acteurs aléatoires */
    handleMix(props.actors)
     
@@ -67,11 +68,11 @@ const Proposal = (props) => {
     .then(res => res.json())
     .then(data => {
         const isOk = data.cast.find(actorMovie => actorMovie.title === movie)
-    // If correct answer
+    // Si c'est correct 
     if ((yes && isOk) || (!yes && !isOk)) {
         setScore(score+1)
         props.score(score+1)
-        props.visualScoreIncr()
+        props.viewScoreIncr()
       } else {
         props.gameOver(true)
       }

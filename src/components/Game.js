@@ -10,18 +10,36 @@ const Game = (props) => {
 
   useEffect(() => {
     let interval = null;
-
+    /* regle du TIMER */
     interval = setInterval(() => {
-      if (timer > 0) {
-        setTimer((timer) => timer - 1);
+        if (timer > 0) {
+          setTimer(timer => timer - 1);
+        } else {
+          setGameOver(true)
+          clearInterval(interval);
+        }
+      }, 1000);
+      
+      if (gameOver) {
+        /* GameOver, reset du timer */
+        setTimer(0)
       }
-    }, 1000);
-    return;
+      return () => clearInterval(interval);
+
   }, [timer]);
 
-  /* Refresh la page pour rejouer */
-   function handleClick() {
+  /* Refresh la page pour REJOUER apres gameover */
+  const handleClick = () => {
     window.location.reload(true)
+  };
+
+  const viewScoreIncrement = () => {
+    const score = document.getElementById("score")
+
+    score.classList.add("score")
+    setInterval(() => {
+      score.classList.remove("score")
+    }, 50)
   }
 
   /****** RENDU VISUEL ********/
@@ -36,23 +54,10 @@ const Game = (props) => {
             <div className="timer">
               Temps: <b>{timer}</b>
             </div>
-            <div className="score">
+            <div id="score" className="score">
               Score: <b>{score}</b>
             </div>
           </div>
-          {/* <h4>Cet acteur a t'il joué dans ce film ? 🍿</h4>
-          <div className="section-card">
-            <div className="img-container">
-              <div className="image">IMAGE ICI</div>
-            </div>
-            <div className="img-container">
-              <div className="image">IMAGE ICI</div>
-            </div>
-          </div>
-          <div className="section-card">
-            <div className="button-yes">✔️ OUI</div>
-            <div className="button-no">✖️ NON</div>
-          </div> */}
         </div>
         <div className="game-over-container">
         {gameOver ? 
@@ -64,7 +69,11 @@ const Game = (props) => {
           : "hidden"}
         </div>
         <Proposal actors={props.actors} 
-                  movies={props.movies} />
+                  movies={props.movies} 
+                  score={scoreUpdate => setScore(scoreUpdate)}
+                  gameOver={gameOver => setGameOver(gameOver)} 
+                  viewScoreIncr={viewScoreIncrement}
+         />
       </div>
     </>
   );

@@ -135,9 +135,17 @@ a {
 /*===========================*/
 /*==========  PROPOSAL ==========*/
 /*===========================*/
+img {
+  border-radius: 8px;
+}
 
 h4 {
   padding-bottom: 15px;
+  font-size: 17px;
+}
+
+h4 b {
+  color: orangered;
 }
 .section-card {
   display: flex;
@@ -214,7 +222,7 @@ h4 {
   top: 300px;
   border: solid 1px red;
   background-color: white;
-  padding: 1rem;
+  padding: 5rem;
   padding-bottom: 50px;
   box-sizing: border-box;
   text-align: center;
