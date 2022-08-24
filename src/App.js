@@ -14,7 +14,7 @@ const App = () => {
     "https://api.themoviedb.org/3/person/popular?api_key=eb553d0ae0d677efb0e511568c1b789a&language=en-US&page=1",
     fetcher
   );
-
+  
   const actors = [];
   const movies = [];
 
@@ -52,7 +52,10 @@ const App = () => {
           path="/game"
           exact
           element={
-            <Game/>
+            <Game
+              actors={actors.filter((actor) => actor.movies.length > 0)}
+              movies={movies.filter((movie) => movie.name !== undefined)}
+            />
           }
         />
         <Route path="*" exact element={<Home />} /> {/* Redirection Home */}
