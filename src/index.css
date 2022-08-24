@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;1,100&family=Shrikhand&display=swap');
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&family=Shrikhand&display=swap");
 
+/*==========  MINIRESET ==========*/
 * {
     margin: 0;
     padding: 0;
@@ -27,3 +28,55 @@ a {
     text-decoration: none;
     color: inherit; 
 }
+/*===========================*/
+/*==========  HOME ==========*/
+/*===========================*/
+#root {
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: black;
+}
+
+.main-header {
+  color: red;
+};
+
+.main-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+}
+
+.main-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #fff;
+  border-radius: 20px;
+  box-shadow: 0px 0px 6px 0px #696969;
+  padding: 40px 30px;
+}
+
+.button-play {
+  padding: 15px 20px;
+  border-radius: 8px;
+  background-color: red;
+  border: none;
+  color: #fff;
+  font-size: 20px;
+  font-weight: bold;
+  margin: 10px;
+  cursor: pointer;
+}
+
+/*===========================*/
+/*==========  GAME ==========*/
+/*===========================*/
