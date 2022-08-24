@@ -80,3 +80,74 @@ a {
 /*===========================*/
 /*==========  GAME ==========*/
 /*===========================*/
+.timerscore {
+  display: flex;
+  align-items: center;
+  width: calc(100% - 20px);
+  padding-bottom: 15px;
+}
+
+.timer {
+  display: flex;
+  flex: 1 1;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.score {
+  display: flex;
+  flex: 1 1;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+h4 {
+  padding-bottom: 15px;
+}
+.section-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 10px;
+  width: 100%;
+}
+
+.img-container {
+  padding: 10px;
+  width: 100%;
+}
+
+.image {
+  background-color: #ececec;
+  width: 100%;
+  padding-top: 133.3333333333%;
+  background-size: cover;
+  background-position: center;
+  border-radius: 20px;
+}
+
+.button-yes {
+  flex: 1 1;
+  padding: 15px 20px;
+  border-radius: 8px;
+  background-color: green;
+  border: none;
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  margin: 10px;
+  cursor: pointer;
+}
+
+.button-no {
+  flex: 1 1;
+  padding: 15px 20px;
+  border-radius: 8px;
+  background-color: red;
+  border: none;
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  margin: 10px;
+  cursor: pointer;
+}
