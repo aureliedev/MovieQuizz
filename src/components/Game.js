@@ -55,11 +55,13 @@ const Game = (props) => {
           </div> */}
         </div>
         <div className="game-over-container">
+        {gameOver ? 
           <div className="game-over">
             <h1>GAME OVER !</h1>
             <div className="game-over-score">Score: <b>{score}</b></div>
             <button className="button-play-again" onClick={handleClick}>REJOUER</button>
           </div>
+          : "hidden"}
         </div>
         <Proposal />
       </div>
