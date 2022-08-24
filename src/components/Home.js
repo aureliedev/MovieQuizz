@@ -2,12 +2,12 @@ import React from 'react';
 import {Link} from 'react-router-dom'
 
 const Home = () => {
-    
+
     return (
         <>
       <div className="main-container">
         <div className="main-header">
-          <h1>MOVIE QUIZZ</h1>
+          <h1>MOVIE QUIZZ 🍿</h1>
         </div>
         <div className="main-card">
           <h2>Le principe du jeu:</h2>

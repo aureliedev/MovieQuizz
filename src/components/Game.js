@@ -63,7 +63,8 @@ const Game = (props) => {
           </div>
           : "hidden"}
         </div>
-        <Proposal />
+        <Proposal actors={props.actors} 
+                  movies={props.movies} />
       </div>
     </>
   );
