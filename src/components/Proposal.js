@@ -12,8 +12,10 @@ import React, { useEffect, useState } from "react";
   }
 /****** COMPONENT PROPOSAL ********/
 const Proposal = (props) => {
-  const [proposalList, setProposalList] = useState();
-  const [proposalCount, setProposalCount] = useState();
+  const [proposalList, setProposalList] = useState([]);
+  const [proposalCount, setProposalCount] = useState(0);
+  const [score, setScore] = useState(0)
+
 
   useEffect(() => {
     const proposal = [];
@@ -48,25 +50,63 @@ const Proposal = (props) => {
    setProposalList(proposal)
  }, [])
 
+  /**
+   * Fonction du jeu, déclenchée lorsque l'utilisateur répond
+   * @param {*} yes booléen, la réponse de l'utilisateur
+   * @param {*} actor l'acteur dans la question
+   * @param {*} movie le film dans la question
+   */
+    const answerFetch = (yes, actor, movie) => {
+    fetch('https://api.themoviedb.org/3/person/' + actor.id + '/movie_credits?api_key=eb553d0ae0d677efb0e511568c1b789a&language=en-US', {
+        method: "GET",
+        dataType: "JSON",
+        headers: {
+          "Content-Type": "application/json; charset=utf-8",
+      }
+    })
+    .then(res => res.json())
+    .then(data => {
+        const isOk = data.cast.find(actorMovie => actorMovie.title === movie)
+    // If correct answer
+    if ((yes && isOk) || (!yes && !isOk)) {
+        setScore(score+1)
+        props.score(score+1)
+        props.visualScoreIncr()
+      } else {
+        props.gameOver(true)
+      }
+
+      /* Stop avant la derniere question */
+      if (proposalCount < proposalList.length) {
+        setProposalCount(proposalCount+1)
+      } else {
+        setProposalCount(0)
+      }
+    })
+}
+
   /****** RENDU VISUEL ********/
   return (
-    <>
+    proposalList.length > 0 ?
+    (<>
       <div className="main-card-proposal">
-        <h4>Cet acteur a t'il joué dans ce film ? 🍿</h4>
+        <h4>Est-ce que <b>{proposalList[proposalCount].actor}</b> a joué dans <b>{proposalList[proposalCount].movie}</b> ? 🍿</h4>
         <div className="section-card">
           <div className="img-container">
-            <div className="image">IMAGE ICI</div>
+            <img src={"http://image.tmdb.org/t/p/w185" + proposalList[proposalCount].portrait} alt="actor"/>
           </div>
           <div className="img-container">
-            <div className="image">IMAGE ICI</div>
+            <img src={"http://image.tmdb.org/t/p/w185" + proposalList[proposalCount].poster} alt="movie"/>
           </div>
         </div>
         <div className="section-card">
-          <div className="button-yes">✔️ OUI</div>
-          <div className="button-no">✖️ NON</div>
+          <button className="button-yes" onClick={() => answerFetch(true, props.actors[proposalCount], proposalList[proposalCount].movie)}>✔️ OUI</button>
+          <button className="button-no" onClick={() => answerFetch(false, props.actors[proposalCount], proposalList[proposalCount].movie)}>✖️ NON</button>
         </div>
       </div>
-    </>
+    </>)
+    :
+    <div>LOADIIIIIIIING</div>
   );
 };
 
