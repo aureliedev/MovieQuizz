@@ -94,11 +94,19 @@ a {
   align-items: center;
 }
 
+.timer b{
+  color: orangered;
+}
+
 .score {
   display: flex;
   flex: 1 1;
   justify-content: flex-end;
   align-items: center;
+}
+
+.score b{
+  color: orangered;
 }
 
 h4 {

@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 const Game = (props) => {
 
   const [timer, setTimer] = useState(60);
+  const [score, setScore] = useState(0);
 
   useEffect(() => {
     let interval = null;
@@ -26,8 +27,8 @@ const Game = (props) => {
         </div>
         <div className="main-card">
           <div className="timerscore">
-            <div className="timer">Temps: {timer}</div>
-            <div className="score">SCORE</div>
+            <div className="timer">Temps: <b>{timer}</b></div>
+            <div className="score">Score: <b>{score}</b></div>
           </div>
           <h4>Cet acteur a t'il joué dans ce film ? 🍿</h4>
           <div className="section-card">
