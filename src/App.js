@@ -25,7 +25,22 @@ const App = () => {
   if (data) {
     const actorsResults = [...data.results];
 
-   
+    actorsResults.forEach((actor) => {
+      actors.push({
+        id: actor.id,
+        name: actor.name,
+        picture: actor.profile_path,
+        movies: actor.known_for.map((movie) => movie.title).filter(Boolean),
+      });
+
+      actor.known_for.forEach((movie) => {
+        movies.push({
+          id: movie.id,
+          poster: movie.poster_path,
+          name: movie.title,
+        });
+      });
+    });
   };
 
   /****** RENDU VISUEL ********/
