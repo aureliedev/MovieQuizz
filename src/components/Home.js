@@ -1,10 +1,12 @@
-import React from 'react';
-import {Link} from 'react-router-dom'
+import React from "react";
+import { Link } from "react-router-dom";
 
+/****** COMPONENT HOME ********/
 const Home = () => {
-
-    return (
-        <>
+  
+  /****** RENDU VISUEL ********/
+  return (
+    <>
       <div className="main-container">
         <div className="main-header">
           <h1>MOVIE QUIZZ 🍿</h1>
@@ -13,13 +15,16 @@ const Home = () => {
           <h2>Le principe du jeu:</h2>
           <p>A chaque round, on présente un acteur et une affiche de film.</p>
           <p>Le joueur doit dire si l'acteur a joué dans le film présenté.</p>
-          <p>A la première mauvaise réponse c'est GameOver, sinon le jeu continue.</p>
+          <p>A la première mauvaise réponse c'est GameOver, sinon le jeu continue.
+          </p>
+          <p>Vous avez 1min pour répondre a chaque question sinon c'est GameOver.</p>
           <div className="button-play">
-          <Link to="/game">PLAY 🎬</Link></div>
+            <Link to="/game">PLAY 🎬</Link>
+          </div>
         </div>
       </div>
     </>
-    );
+  );
 };
 
 export default Home;

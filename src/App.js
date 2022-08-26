@@ -8,13 +8,12 @@ const fetcher = (url) => fetch(url).then((res) => res.json());
 
 /****** FONCTION APP ********/
 const App = () => {
-
   /*Récup les 20 acteurs les + populaires */
   const { data, error } = useSWR(
     "https://api.themoviedb.org/3/person/popular?api_key=eb553d0ae0d677efb0e511568c1b789a&language=en-US&page=1",
     fetcher
   );
-  
+
   const actors = [];
   const movies = [];
 
@@ -41,7 +40,7 @@ const App = () => {
         });
       });
     });
-  };
+  }
 
   /****** RENDU VISUEL ********/
   return (
