@@ -12,7 +12,7 @@ A chaque round, on présente un acteur et une affiche de film. Le joueur doit di
 
 A la première mauvaise réponse, game over. Le jeu continue tant que le joueur donne des bonnes réponses.
 
-`Utilisation de [Create React App](https://github.com/facebook/create-react-app).`
+Utilisation de [Create React App](https://github.com/facebook/create-react-app).
 
 ## A noter :
 
