@@ -1,6 +1,6 @@
 # Movie Quizz
 
- Project en live ici [Movie Quizz](https://aureliedev.github.io/MovieQuizz/).
+ Project en live ici:  [Movie Quizz](https://aureliedev.github.io/MovieQuizz/).
 
 ## Le principe :
 
@@ -12,5 +12,8 @@ A chaque round, on présente un acteur et une affiche de film. Le joueur doit di
 
 A la première mauvaise réponse, game over. Le jeu continue tant que le joueur donne des bonnes réponses.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### `This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).`
 
+## A noter :
+
+### `le jeu se recharge correctement après un GAMEOVER en local sur votre machine.`
